@@ -13,7 +13,7 @@ class Services : Gettable {
     var page : Int?
     
     let downloader = JSONDownloader()
-    typealias CurrentWeatherCompletionHandler = (Result<UserModel>) -> ()
+    typealias CurrentCompletionHandler = (Result<UserModel>) -> ()
     
     func getUserList(page : Int? ,completion : @escaping (_ result: UserModel?) -> Void){
         
@@ -29,7 +29,7 @@ class Services : Gettable {
             }
         }
     }
-    func get(completion: @escaping CurrentWeatherCompletionHandler) {
+    func get(completion: @escaping CurrentCompletionHandler) {
         
         let urlSting = "https://reqres.in/api/users?page=\(self.page ?? 0)"
         print(urlSting)
